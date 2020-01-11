@@ -16,15 +16,15 @@ public class PortalActions : MonoBehaviour {
     private Animator anim;
     private float timer;
 
-	void Start () {
+	private void Start () {
         anim = GetComponent<Animator>();
         goodSpark = GetComponent<PortalAnimations>().goodSpark;
         badSpark = GetComponent<PortalAnimations>().badSpark;
         ResetTimer();
         SetNeutral();
 	}
-	
-	void Update () {
+
+	private void Update () {
         CycleActions();
 	}
 

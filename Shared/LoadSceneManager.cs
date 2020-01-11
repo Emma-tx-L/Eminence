@@ -22,12 +22,14 @@ public class LoadSceneManager : MonoBehaviour {
 
     public void GoToRetry()
     {
+        Time.timeScale = 1f;
         Scene currentMap = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentMap.name);
     }
 
     public void LoadLightSurvivalMode()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("LightModeSurvival");
     }
 }
