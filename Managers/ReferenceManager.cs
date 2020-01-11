@@ -10,6 +10,7 @@ public class ReferenceManager : MonoBehaviour {
     //Dobty
     public GameObject Dobty;
     public DobtyHP dobtyHP;
+    public Animator DobtyIconAnim;
 
     //Other Managers
     public ScoreManager scoreManager;

@@ -10,10 +10,12 @@ public class PortalMovement : MonoBehaviour {
     private float timer = 0f;
     private float x;
     private float y;
+    private Rigidbody rb;
 
     void Start()
     {
         timer = 0f;
+        rb = GetComponent<Rigidbody>();
         RecalculateMovement();
     }
 
@@ -32,6 +34,7 @@ public class PortalMovement : MonoBehaviour {
             timer += Time.deltaTime;
         }
 
+        CorrectPosition();
         StayOnScreen();
     }
 
@@ -39,6 +42,21 @@ public class PortalMovement : MonoBehaviour {
     {
         Vector3 direction = (new Vector3(x, 0, y) * Time.deltaTime) * moveSpeed;
         transform.Translate(direction, Space.World);
+    }
+
+    private void oncollisionenter(Collider other)
+    {
+        if (other.gameObject.tag == "Portal")
+        {
+            RecalculateMovement();
+            timer = 0f;
+        }
+    }
+
+    private void CorrectPosition()
+    {
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
     }
 
     private void RecalculateMovement()

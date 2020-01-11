@@ -17,6 +17,7 @@ public class DobtyHP : MonoBehaviour {
     public ParticleSystem badEffect;
 
     private Slider HPSlider;
+    private Animator DobtyIconAnim;
     private float brightnessIncrement = 0.1f;
     private float iframe = 0.5f;
     private bool iframed;
@@ -32,6 +33,7 @@ public class DobtyHP : MonoBehaviour {
     private void SetUpHPSlider()
     {
         HPSlider = ReferenceManager.refManager.HPSlider;
+        DobtyIconAnim = ReferenceManager.refManager.DobtyIconAnim;
         HPSlider.maxValue = maxHP;
         HPSlider.minValue = 0;
         HPSlider.value = currentHP;
@@ -56,6 +58,7 @@ public class DobtyHP : MonoBehaviour {
             ChangeBrightness(false);
             badEffect.Play();
             //ReferenceManager.refManager.scoreManager.UpdatePoints(scoreDecrement);
+            DobtyIconAnim.SetTrigger("DobtyHurt");
             HPSlider.value = currentHP;
             StartCoroutine(MakeInvulnerable());
         }
@@ -69,6 +72,7 @@ public class DobtyHP : MonoBehaviour {
             ChangeBrightness(true);
             goodEffect.Play();
             ReferenceManager.refManager.scoreManager.UpdatePoints(scoreIncrement);
+            DobtyIconAnim.SetTrigger("DobtyHappy");
             HPSlider.value = currentHP;
             StartCoroutine(MakeInvulnerable());
         }
