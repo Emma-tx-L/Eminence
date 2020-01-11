@@ -17,12 +17,17 @@ public class LoadSceneManager : MonoBehaviour {
 
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Additive);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GoToRetry()
     {
         Scene currentMap = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentMap.name, LoadSceneMode.Additive);
+        SceneManager.LoadScene(currentMap.name);
+    }
+
+    public void LoadLightSurvivalMode()
+    {
+        SceneManager.LoadScene("LightModeSurvival");
     }
 }
