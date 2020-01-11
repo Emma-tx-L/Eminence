@@ -8,11 +8,6 @@ public class PortalAnimations : MonoBehaviour {
     public ParticleSystem badSpark;
     public ParticleSystem goodSpark;
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-
     public void cueBad()
     {
         badCue.Play();
