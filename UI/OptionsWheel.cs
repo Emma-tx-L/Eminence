@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class OptionsWheel : MonoBehaviour {
 
     public GameObject optionsMenu;
+    public GameObject achievementsMenu;
     private bool menuOpen;
     private string openScene;
 
@@ -19,6 +20,12 @@ public class OptionsWheel : MonoBehaviour {
     {
         menuOpen = !menuOpen;
         optionsMenu.SetActive(menuOpen);
+
+        if (!menuOpen)
+        {
+            achievementsMenu.SetActive(false);
+        }
+
         if (openScene == "GameMode")
         {
             if (menuOpen)
