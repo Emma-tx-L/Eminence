@@ -21,6 +21,7 @@ public class LoadSceneManager : MonoBehaviour {
     public void LoadGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(1);
+        Debug.Log("loading game mode " + GameControl.gameMode);
+        SceneManager.LoadScene("GameMode");
     }
 }

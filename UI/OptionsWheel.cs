@@ -7,11 +7,11 @@ public class OptionsWheel : MonoBehaviour {
 
     public GameObject optionsMenu;
     private bool menuOpen;
-    private int openScene;
+    private string openScene;
 
 	void Start () {
         menuOpen = optionsMenu.activeSelf;
-        openScene = SceneManager.GetActiveScene().buildIndex;
+        openScene = SceneManager.GetActiveScene().name;
     }
 	
 
@@ -19,7 +19,7 @@ public class OptionsWheel : MonoBehaviour {
     {
         menuOpen = !menuOpen;
         optionsMenu.SetActive(menuOpen);
-        if (openScene == 1)
+        if (openScene == "GameMode")
         {
             if (menuOpen)
             {

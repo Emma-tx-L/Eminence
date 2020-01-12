@@ -7,16 +7,6 @@ public class AchievementsUIManager : MonoBehaviour {
 
     public GameObject AchievementsPanel;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void OpenAchievements()
     {
         AchievementsPanel.SetActive(true);

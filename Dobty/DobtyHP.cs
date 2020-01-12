@@ -25,15 +25,15 @@ public class DobtyHP : MonoBehaviour {
     private int gameMode;
     private ScoreManager scoreManager;
 
-    void Start () {
+    void Awake() {
         material = GetComponentInChildren<Renderer>().material;
         currentHP = maxHP;
         iframed = false;
-        gameMode = GameControl.control.getGameMode();
-        SetUpHPSlider();
+        gameMode = GameControl.gameMode;
+        Debug.Log("Game mode is " + GameControl.gameMode);
         DobtyIconAnim = ReferenceManager.refManager.DobtyIconAnim;
         scoreManager = ReferenceManager.refManager.scoreManager;
-
+        SetUpHPSlider();
     }
 
     private void SetUpHPSlider()
@@ -44,8 +44,10 @@ public class DobtyHP : MonoBehaviour {
             HPSlider.maxValue = maxHP;
             HPSlider.minValue = 0;
             HPSlider.value = currentHP;
-        } else if (gameMode == 1)
+        }
+        if (gameMode == 1)
         {
+            Debug.Log("disabled slider" + gameMode + GameControl.gameMode);
             ReferenceManager.refManager.HPSliderObject.SetActive(false);
         }
     }

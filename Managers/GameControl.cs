@@ -40,12 +40,13 @@ public class GameControl : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
             control = this;
+            Load();
         }
         else if (control != this)
         {
             Destroy(gameObject);
         }
-        Load();
+        CreateSaveFile();
     }
 
     private static void CreateSaveFile()
@@ -112,10 +113,6 @@ public class GameControl : MonoBehaviour
             worshipped = data.worshipped;
             revered = data.revered;
             exalted = data.exalted;
-        }
-        else
-        {
-            CreateSaveFile();
         }
     }
 

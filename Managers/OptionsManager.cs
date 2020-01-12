@@ -17,36 +17,36 @@ public class OptionsManager : MonoBehaviour {
     public Text survivalHighScore;
     public Text endlessHighScore;
 
-    private int openScene;
+    private string openScene;
 
 	private void Start() {
-        openScene = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    private void OnEnable()
-    {
+        openScene = SceneManager.GetActiveScene().name;
         UpdateOptionsTheme();
 
-        if (openScene == 0)
+        if (openScene == "MainMenu")
         {
             UpdateGameMode();
+            UpdateHighScoreMenu();
         }
-        else if (openScene == 1)
+        else if (openScene == "GameMode")
         {
             UpdateHighScore();
             UpdateCurrentScore();
         }
-
     }
 
     private void UpdateOptionsTheme()
     {
-        if (GameControl.control.getThemePreference())
+        if (GameControl.lightMode)
         {
+            Debug.Log("setting light theme");
             lightTheme.SetActive(true);
             darkTheme.SetActive(false);
-        } else
+            Debug.Log("finished setting light theme");
+        }
+        else
         {
+            Debug.Log("setting dark theme");
             lightTheme.SetActive(false);
             darkTheme.SetActive(true);
         }
@@ -54,11 +54,12 @@ public class OptionsManager : MonoBehaviour {
 
     private void UpdateGameMode()
     {
+        Debug.Log(GameControl.gameMode);
         foreach (GameObject mode in gameModes)
         {
             mode.SetActive(false);
         }
-        gameModes[GameControl.control.getGameMode()].SetActive(true);
+        gameModes[GameControl.gameMode].SetActive(true);
     }
 
     public void ChangeGameMode()
