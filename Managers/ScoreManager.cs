@@ -29,4 +29,9 @@ public class ScoreManager : MonoBehaviour {
             star.SetTrigger("LosePoints");
         }
     }
+
+    public int GetCurrentScore()
+    {
+        return int.Parse(score.text);
+    }
 }

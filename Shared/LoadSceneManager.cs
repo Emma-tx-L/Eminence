@@ -5,19 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneManager : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void GoToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
     public void GoToRetry()
@@ -27,9 +18,9 @@ public class LoadSceneManager : MonoBehaviour {
         SceneManager.LoadScene(currentMap.name);
     }
 
-    public void LoadLightSurvivalMode()
+    public void LoadGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("LightModeSurvival");
+        SceneManager.LoadScene(1);
     }
 }

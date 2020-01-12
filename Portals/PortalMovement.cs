@@ -10,12 +10,10 @@ public class PortalMovement : MonoBehaviour {
     private float timer = 0f;
     private float x;
     private float y;
-    private Rigidbody rb;
 
     void Start()
     {
         timer = 0f;
-        rb = GetComponent<Rigidbody>();
         RecalculateMovement();
     }
 
@@ -74,8 +72,8 @@ public class PortalMovement : MonoBehaviour {
             RecalculateMovement();
         }
 
-        pos.x = Mathf.Clamp(pos.x, 0.03f, 0.97f);
-        pos.y = Mathf.Clamp(pos.y, 0.1f, 0.9f);
+        pos.x = Mathf.Clamp(pos.x, 0.2f, 0.8f);
+        pos.y = Mathf.Clamp(pos.y, 0.2f, 0.8f);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
     }
 }
