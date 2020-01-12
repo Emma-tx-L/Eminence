@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour {
     public void EndGame()
     {
         HandleTimesPlayedAchievement();
+        UpdateHighScore();
         ReferenceManager.refManager.timeManager.EndGame();
         GameObject gameOverCanvas = ReferenceManager.refManager.gameOverCanvas;
         gameOverCanvas.SetActive(true);
