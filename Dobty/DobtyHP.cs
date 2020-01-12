@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DobtyHP : MonoBehaviour {
     public float maxBrightness = 3f;
-    public float minBrightness = 0.5f;
+    public float minBrightness = 0.4f;
 
     public int maxHP = 10;
     public int currentHP;
@@ -22,21 +22,34 @@ public class DobtyHP : MonoBehaviour {
     private float iframe = 0.5f;
     private bool iframed;
     private Material material;
+    private int gameMode;
+    private ScoreManager scoreManager;
 
-    void Start () {
+    void Awake() {
         material = GetComponentInChildren<Renderer>().material;
         currentHP = maxHP;
         iframed = false;
+        gameMode = GameControl.gameMode;
+        Debug.Log("Game mode is " + GameControl.gameMode);
+        DobtyIconAnim = ReferenceManager.refManager.DobtyIconAnim;
+        scoreManager = ReferenceManager.refManager.scoreManager;
         SetUpHPSlider();
     }
 
     private void SetUpHPSlider()
     {
-        HPSlider = ReferenceManager.refManager.HPSlider;
-        DobtyIconAnim = ReferenceManager.refManager.DobtyIconAnim;
-        HPSlider.maxValue = maxHP;
-        HPSlider.minValue = 0;
-        HPSlider.value = currentHP;
+        if (gameMode == 0)
+        {
+            HPSlider = ReferenceManager.refManager.HPSlider;
+            HPSlider.maxValue = maxHP;
+            HPSlider.minValue = 0;
+            HPSlider.value = currentHP;
+        }
+        if (gameMode == 1)
+        {
+            Debug.Log("disabled slider" + gameMode + GameControl.gameMode);
+            ReferenceManager.refManager.HPSliderObject.SetActive(false);
+        }
     }
 
     private void ChangeBrightness(bool positive)
@@ -46,20 +59,67 @@ public class DobtyHP : MonoBehaviour {
         material.SetFloat("_Brightness", newBrightness);
     }
 
+    private void HandleAchievements()
+    {
+        if (gameMode == 0)
+        {
+            if (currentHP == maxHP)
+            {
+                int currentScore = scoreManager.GetCurrentScore();
+                if (currentScore > 10)
+                {
+                    GameControl.untainted = true;
+                }
+                if (currentScore > 25)
+                {
+                    GameControl.pure = true;
+                }
+                if (currentScore > 50)
+                {
+                    GameControl.sacred = true;
+                }
+            }
+        }
+        else if (gameMode == 1)
+        {
+            int currentScore = scoreManager.GetCurrentScore();
+            if (currentScore > 50)
+            {
+                GameControl.worshipped = true;
+            }
+            if (currentScore > 100)
+            {
+                GameControl.revered = true;
+            }
+            if (currentScore > 200)
+            {
+                GameControl.exalted = true;
+            }
+        }
+    }
+
     public void DeductHP(int deduction)
     {
         if (!iframed)
         {
-            currentHP = Mathf.Clamp(currentHP - deduction, 0, maxHP);
-            if (currentHP <= 0)
+            if (gameMode == 0)
             {
-                GameManager.gameManager.EndGame();
+                currentHP = Mathf.Clamp(currentHP - deduction, 0, maxHP);
+                if (currentHP <= 0)
+                {
+                    GameManager.gameManager.EndGame();
+                }
+                HPSlider.value = currentHP;
             }
+
+            if (gameMode == 1)
+            {
+                scoreManager.UpdatePoints(scoreDecrement);
+            }
+
             ChangeBrightness(false);
             badEffect.Play();
-            //ReferenceManager.refManager.scoreManager.UpdatePoints(scoreDecrement);
             DobtyIconAnim.SetTrigger("DobtyHurt");
-            HPSlider.value = currentHP;
             StartCoroutine(MakeInvulnerable());
         }
     }
@@ -68,12 +128,11 @@ public class DobtyHP : MonoBehaviour {
     {
         if (!iframed)
         {
-            //currentHP = Mathf.Clamp(currentHP + addition, 0, maxHP);
             ChangeBrightness(true);
             goodEffect.Play();
-            ReferenceManager.refManager.scoreManager.UpdatePoints(scoreIncrement);
+            scoreManager.UpdatePoints(scoreIncrement);
             DobtyIconAnim.SetTrigger("DobtyHappy");
-            HPSlider.value = currentHP;
+            HandleAchievements();
             StartCoroutine(MakeInvulnerable());
         }
     }

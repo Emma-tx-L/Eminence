@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager gameManager;
 
-	// Use this for initialization
 	void Awake () {
 		if (gameManager == null)
         {
@@ -16,10 +15,41 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         }
 	}
+
+    private void HandleTimesPlayedAchievement()
+    {
+        GameControl.timesPlayedSurvival++;
+
+        switch (GameControl.timesPlayedSurvival)
+        {
+            case 10:
+                GameControl.hungry = true;
+                break;
+            case 50:
+                GameControl.famished = true;
+                break;
+            case 100:
+                GameControl.ravenous = true;
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void UpdateHighScore()
+    {
+        int currentScore = ReferenceManager.refManager.scoreManager.GetCurrentScore();
+        if (currentScore > GameControl.highScoreSurvival)
+        {
+            GameControl.highScoreSurvival = currentScore;
+        }
+    }
 	
 
     public void EndGame()
     {
+        HandleTimesPlayedAchievement();
+        UpdateHighScore();
         ReferenceManager.refManager.timeManager.EndGame();
         GameObject gameOverCanvas = ReferenceManager.refManager.gameOverCanvas;
         gameOverCanvas.SetActive(true);

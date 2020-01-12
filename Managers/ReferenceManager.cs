@@ -15,9 +15,12 @@ public class ReferenceManager : MonoBehaviour {
     //Other Managers
     public ScoreManager scoreManager;
     public TimeManager timeManager;
+    public SkyboxTheme theme;
+    public LoadSceneManager loadSceneManager;
     
     //UI Elements
     public Slider HPSlider;
+    public GameObject HPSliderObject;
     public GameObject gameOverCanvas;
 
 	void Awake () {
