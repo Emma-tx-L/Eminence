@@ -66,6 +66,7 @@ public class GameControl : MonoBehaviour
 
         // ~~ ** //SAVE VARIABLES HERE // ~~ ** //
         data.highScoreSurvival = highScoreSurvival;
+        data.highScoreEndless = highScoreEndless;
         data.lightMode = lightMode;
         data.gameMode = gameMode;
         data.timesPlayedSurvival = timesPlayedSurvival;
@@ -98,6 +99,7 @@ public class GameControl : MonoBehaviour
 
             // ~~ ** //LOAD VARIABLES HERE // ~~ ** //
             highScoreSurvival = data.highScoreSurvival;
+            highScoreEndless = data.highScoreEndless;
             lightMode = data.lightMode;
             gameMode = data.gameMode;
             timesPlayedSurvival = data.timesPlayedSurvival;
@@ -147,6 +149,7 @@ public class GameControl : MonoBehaviour
 class PlayerData
 {
     public int highScoreSurvival;
+    public int highScoreEndless;
     public bool lightMode;
     public int gameMode;
     public int timesPlayedSurvival;
