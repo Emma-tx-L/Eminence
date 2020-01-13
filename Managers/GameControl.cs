@@ -123,6 +123,14 @@ public class GameControl : MonoBehaviour
         Save();
     }
 
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            Save();
+        }
+    }
+
     public bool getThemePreference()
     {
         return lightMode;

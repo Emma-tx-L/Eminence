@@ -30,7 +30,6 @@ public class DobtyHP : MonoBehaviour {
         currentHP = maxHP;
         iframed = false;
         gameMode = GameControl.gameMode;
-        Debug.Log("Game mode is " + GameControl.gameMode);
         DobtyIconAnim = ReferenceManager.refManager.DobtyIconAnim;
         scoreManager = ReferenceManager.refManager.scoreManager;
         SetUpHPSlider();
@@ -47,7 +46,6 @@ public class DobtyHP : MonoBehaviour {
         }
         if (gameMode == 1)
         {
-            Debug.Log("disabled slider" + gameMode + GameControl.gameMode);
             ReferenceManager.refManager.HPSliderObject.SetActive(false);
         }
     }
