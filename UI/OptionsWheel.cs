@@ -21,7 +21,7 @@ public class OptionsWheel : MonoBehaviour {
         menuOpen = !menuOpen;
         optionsMenu.SetActive(menuOpen);
 
-        if (!menuOpen)
+        if (!menuOpen && achievementsMenu)
         {
             achievementsMenu.SetActive(false);
         }
