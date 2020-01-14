@@ -15,8 +15,10 @@ public class GameControl : MonoBehaviour
     public static int highScoreEndless = 0;
 
     public static bool lightMode = true;
-    public static int gameMode = 1;
+    public static int gameMode = 0;
     public static int timesPlayedSurvival = 0;
+    public static bool backgroundMusic = true;
+    public static bool dobtyGameSounds = false;
 
     // Achievements
     //Survival mode
@@ -121,6 +123,14 @@ public class GameControl : MonoBehaviour
     private void OnApplicationQuit()
     {
         Save();
+    }
+
+    private void OnApplicationFocus(bool hasFocus)
+    {
+        if (!hasFocus)
+        {
+            Save();
+        }
     }
 
     public bool getThemePreference()

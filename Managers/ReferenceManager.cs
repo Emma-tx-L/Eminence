@@ -17,6 +17,7 @@ public class ReferenceManager : MonoBehaviour {
     public TimeManager timeManager;
     public SkyboxTheme theme;
     public LoadSceneManager loadSceneManager;
+    public AudioManager audioManager;
     
     //UI Elements
     public Slider HPSlider;

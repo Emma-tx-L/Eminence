@@ -39,14 +39,11 @@ public class OptionsManager : MonoBehaviour {
     {
         if (GameControl.lightMode)
         {
-            Debug.Log("setting light theme");
             lightTheme.SetActive(true);
             darkTheme.SetActive(false);
-            Debug.Log("finished setting light theme");
         }
         else
         {
-            Debug.Log("setting dark theme");
             lightTheme.SetActive(false);
             darkTheme.SetActive(true);
         }
@@ -54,7 +51,6 @@ public class OptionsManager : MonoBehaviour {
 
     private void UpdateGameMode()
     {
-        Debug.Log(GameControl.gameMode);
         foreach (GameObject mode in gameModes)
         {
             mode.SetActive(false);
