@@ -12,7 +12,7 @@ But beware! Not all things that come through the Portal Grounds are blessings...
 
 ## [Download the Android APK here](https://drive.google.com/file/d/1SOvqjJ7zYYhvxgTorc01Q9LsHEnRuM_-/view?usp=sharing).  
 A Windows build will be available ~~once I'm done my real homework~~ soon.  
-A Google Play store version will hopefully be available soon.  
+A Google Play store version will hopefully be available soon (open beta is pending review).  
   
 
 ## Features
