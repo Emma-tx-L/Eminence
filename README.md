@@ -61,17 +61,17 @@ Pause Game and Return-To-Menu (Dobty needs a break) Options
 Dobty, the portals, the audio, and some other stuff were made by me.  
 All external assets were either purchased or free for personal use.  
 
-The following Unity Store Assets were also used or referenced in some way:  
+The following Unity Store Assets were used or referenced in some way:  
 [Particle Ribbon by Moonflower Carnival](https://assetstore.unity.com/packages/vfx/particles/spells/particle-ribbon-42866)  
 [UJoystick by Lovatto Studio](https://assetstore.unity.com/packages/tools/input-management/ujoystick-49186)  
 [Toon Shader Free by Ippokratis Bournellis](https://assetstore.unity.com/packages/vfx/shaders/toon-shader-free-21288)  
 [MK Glow Free by Michael Kremmel](https://assetstore.unity.com/packages/vfx/shaders/fullscreen-camera-effects/mk-glow-free-28044)
 
 Some of the UI is adapted from Giphy stickers:  
-[Good Vibes Love Sticker by Nora Fikse](https://giphy.com/stickers/by-nora-bynorafikse-62bZqi1DwCPy6jyYxJ)
-[Summer Fun Sticker](https://giphy.com/stickers/summer-sun-bysummer-YMk5AJhusglR8goPuk)
-[Happy Fun Sticker](https://giphy.com/stickers/night-moon-planet-lwqCF9DRCHfboaWQdM)
-[Arrow Pfeil Sticker By Alycia Marie](https://giphy.com/stickers/alyciamarie-arrow-pfeil-alycia-marie-Me81mOdZvTtHtAjTAa)
+[Good Vibes Love Sticker by Nora Fikse](https://giphy.com/stickers/by-nora-bynorafikse-62bZqi1DwCPy6jyYxJ)  
+[Summer Fun Sticker](https://giphy.com/stickers/summer-sun-bysummer-YMk5AJhusglR8goPuk)  
+[Happy Fun Sticker](https://giphy.com/stickers/night-moon-planet-lwqCF9DRCHfboaWQdM)  
+[Arrow Pfeil Sticker By Alycia Marie](https://giphy.com/stickers/alyciamarie-arrow-pfeil-alycia-marie-Me81mOdZvTtHtAjTAa)  
 
 Game font is from:  
 [Janga Silly Monkey by Kimberly Geswein](https://www.1001freefonts.com/janda-silly-monkey.font)
