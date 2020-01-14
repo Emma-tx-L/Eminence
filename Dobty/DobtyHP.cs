@@ -26,6 +26,9 @@ public class DobtyHP : MonoBehaviour {
     private ScoreManager scoreManager;
     private AudioManager audioManager;
 
+    /// <summary>
+    /// 
+    /// </summary>
     private void Awake() {
         material = GetComponentInChildren<Renderer>().material;
         currentHP = maxHP;
@@ -37,6 +40,10 @@ public class DobtyHP : MonoBehaviour {
         SetUpHPSlider();
     }
 
+    /// <summary>
+    /// If Survival Mode, sets up HPSlider UI Component 
+    /// If Endless Mode, deactivates HPSlider UI Component
+    /// </summary>
     private void SetUpHPSlider()
     {
         if (gameMode == 0)
@@ -52,6 +59,10 @@ public class DobtyHP : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Changes Dobty's material's brightness property 
+    /// </summary>
+    /// <param name="positive">True if the change is positive, false if negative</param>
     private void ChangeBrightness(bool positive)
     {
         float change = positive ? brightnessIncrement : -brightnessIncrement;
@@ -59,6 +70,9 @@ public class DobtyHP : MonoBehaviour {
         material.SetFloat("_Brightness", newBrightness);
     }
 
+    /// <summary>
+    /// Check if achievements have been met based on current score, HP, and game mode
+    /// </summary>
     private void HandleAchievements()
     {
         if (gameMode == 0)
@@ -98,6 +112,12 @@ public class DobtyHP : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// If Survival mode, deduct HP, update HPSlider UI and call GameOver if HP <= 0
+    /// If Endless mode, decrement points 
+    /// Handles negative effects and calls iFrame
+    /// </summary>
+    /// <param name="deduction">Int value of HP or points to deduct</param>
     public void DeductHP(int deduction)
     {
         if (!iframed)
@@ -126,6 +146,11 @@ public class DobtyHP : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Update points
+    /// Handles positive  effects and calls iFrame
+    /// </summary>
+    /// <param name="addition">Int value of HP or points to add</param>
     public void AddHP(int addition)
     {
         if (!iframed)
@@ -140,6 +165,9 @@ public class DobtyHP : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Make Dobty unable to gain/lose points/HP for iframed seconds
+    /// </summary>
     public IEnumerator MakeInvulnerable()
     {
         iframed = true;
