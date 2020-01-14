@@ -15,8 +15,10 @@ public class GameControl : MonoBehaviour
     public static int highScoreEndless = 0;
 
     public static bool lightMode = true;
-    public static int gameMode = 1;
+    public static int gameMode = 0;
     public static int timesPlayedSurvival = 0;
+    public static bool backgroundMusic = true;
+    public static bool dobtyGameSounds = false;
 
     // Achievements
     //Survival mode

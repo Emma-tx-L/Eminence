@@ -14,13 +14,12 @@ public class LoadSceneManager : MonoBehaviour {
     public void GoToRetry()
     {
         Time.timeScale = 1f;
-        Scene currentMap = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentMap.name);
+        SceneManager.LoadScene("LoadingScene");
     }
 
     public void LoadGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("GameMode");
+        SceneManager.LoadScene("LoadingScene");
     }
 }

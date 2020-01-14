@@ -24,14 +24,16 @@ public class DobtyHP : MonoBehaviour {
     private Material material;
     private int gameMode;
     private ScoreManager scoreManager;
+    private AudioManager audioManager;
 
-    void Awake() {
+    private void Awake() {
         material = GetComponentInChildren<Renderer>().material;
         currentHP = maxHP;
         iframed = false;
         gameMode = GameControl.gameMode;
         DobtyIconAnim = ReferenceManager.refManager.DobtyIconAnim;
         scoreManager = ReferenceManager.refManager.scoreManager;
+        audioManager = ReferenceManager.refManager.audioManager;
         SetUpHPSlider();
     }
 
@@ -106,6 +108,7 @@ public class DobtyHP : MonoBehaviour {
                 if (currentHP <= 0)
                 {
                     GameManager.gameManager.EndGame();
+                    StartCoroutine(audioManager.PlayGameOver());
                 }
                 HPSlider.value = currentHP;
             }
@@ -118,6 +121,7 @@ public class DobtyHP : MonoBehaviour {
             ChangeBrightness(false);
             badEffect.Play();
             DobtyIconAnim.SetTrigger("DobtyHurt");
+            audioManager.PlaySad(false);
             StartCoroutine(MakeInvulnerable());
         }
     }
@@ -130,6 +134,7 @@ public class DobtyHP : MonoBehaviour {
             goodEffect.Play();
             scoreManager.UpdatePoints(scoreIncrement);
             DobtyIconAnim.SetTrigger("DobtyHappy");
+            audioManager.PlayHappy(false);
             HandleAchievements();
             StartCoroutine(MakeInvulnerable());
         }
