@@ -18,7 +18,7 @@ A Google Play store version will hopefully be available soon.
 ## Features
 
 A Sample of (Poor) Gameplay
-![](GameplayDemo.gif)
+![](Demo/GameplayDemo.gif)
 
 Toggle between Light and Dark theme, anytime.  
 ![](Demo/SS-GameModeLight3.PNG)  
@@ -30,14 +30,14 @@ Achievements system: Highscore
 - will add completion and point target achievements ~~as soon as I'm done my homework~~ soon  
 
 Main Menu Options 
-![](OptionsDemo.gif)  
+![](Demo/OptionsDemo.gif)  
 - toggle theme
 - toggle game mode
 - check achievements
 - (coming soon) audio options
 
 Pause Game and Return-To-Menu (Dobty needs a break) Options
-![](GameplayOptionsDemo.gif)
+![](Demo/GameplayOptionsDemo.gif)
 
 
 ## Coming Soon
