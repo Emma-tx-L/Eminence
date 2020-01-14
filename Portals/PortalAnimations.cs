@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalAnimations : MonoBehaviour {
+    /// <summary>
+    /// Wrapper for playing animations available for each Portal
+    /// </summary>
+
     public ParticleSystem badCue;
     public ParticleSystem goodCue;
     public ParticleSystem badSpark;
