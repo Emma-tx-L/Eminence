@@ -10,9 +10,11 @@ Dobty is a young blob deity who wants to grow into a shiny Eminence.
 In the Portal Grounds, Dobty can feed on blessings and become shinier.  
 But beware! Not all things that come through the Portal Grounds are blessings...  
 
-## [Download the Android APK here](https://drive.google.com/file/d/1SOvqjJ7zYYhvxgTorc01Q9LsHEnRuM_-/view?usp=sharing).  
-A Windows build will be available ~~once I'm done my real homework~~ soon.  
-A Google Play store version will hopefully be available soon (open beta is pending review).  
+## Current Published Version: v0.3
+## [Download from Google Play here](https://play.google.com/store/apps/details?id=com.Tuttlebird.Eminence)
+## [Download the Android APK (v0.4) here](https://drive.google.com/file/d/1O5LIX_DJVPuWBz3Tm9bDPWQOxiZA8G1G/view?usp=sharing)  
+## [Download .zip for PC here](https://drive.google.com/file/d/1MyxJOlG65PWLV3JdLTMEwofCy1k_a4Ya/view?usp=sharing)
+For PC build: unzip and run Eminence to play.  
   
 
 ## Features
@@ -49,7 +51,10 @@ Pause Game and Return-To-Menu (Dobty needs a break) Options
 
 
 ## Known Issues
-... none... YET... 
+**v0.3**: "Current Score" in Game Mode's Pause/Options menu only updates the first time the menu is opened  
+*a bugfix for this is pending Google Play review in v0.4*  
+
+**v0.4**: None... YET... 
 
 
 ## A Note About This Repo
