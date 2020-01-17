@@ -59,7 +59,7 @@ Pause Game and Return-To-Menu (Dobty needs a break) Options
 
 ## Credits
 Dobty, the portals, the audio, and some other stuff were made by me.  
-All external assets were either purchased or free for personal use.  
+All external assets were either purchased or free for non-commercial use.  
 
 The following Unity Store Assets were used or referenced in some way:  
 [Particle Ribbon by Moonflower Carnival](https://assetstore.unity.com/packages/vfx/particles/spells/particle-ribbon-42866)  
