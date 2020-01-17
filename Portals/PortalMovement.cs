@@ -50,7 +50,19 @@ public class PortalMovement : MonoBehaviour {
     /// <summary>
     /// If Portals hit another Portal, move somewhere else
     /// </summary>
-    private void OnCollisionEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Portal")
+        {
+            RecalculateMovement();
+            timer = 0f;
+        }
+    }
+
+    /// <summary>
+    /// If Portals hit another Portal, move somewhere else
+    /// </summary>
+    private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.tag == "Portal")
         {
