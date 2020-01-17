@@ -35,6 +35,14 @@ public class OptionsManager : MonoBehaviour {
         }
     }
 
+    private void OnEnable()
+    {
+        if (openScene == "GameMode")
+        {
+            UpdateCurrentScore();
+        }
+    }
+
     private void UpdateOptionsTheme()
     {
         if (GameControl.lightMode)
