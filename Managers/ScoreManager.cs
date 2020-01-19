@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 
-    public Animator star;
-    public Text score;
+    [Header("References")]
+    [SerializeField] private Animator star;
+    [SerializeField] private Text score;
 
+    //Privates
     private int maxScore = 99999999;
 
     private void Start()
@@ -15,6 +17,10 @@ public class ScoreManager : MonoBehaviour {
         score.text = "0";
     }
 
+    /// <summary>
+    /// Update current score UI and animates Star
+    /// </summary>
+    /// <param name="amount">Amount to change score by</param>
     public void UpdatePoints(int amount)
     {
         int currentScore = int.Parse(score.text);
@@ -30,6 +36,9 @@ public class ScoreManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Gets current score from score UI
+    /// </summary>
     public int GetCurrentScore()
     {
         return int.Parse(score.text);

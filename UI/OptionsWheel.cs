@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class OptionsWheel : MonoBehaviour {
 
-    public GameObject optionsMenu;
-    public GameObject achievementsMenu;
+    [Header("References")]
+    [SerializeField] private GameObject optionsMenu;
+    [SerializeField] private GameObject achievementsMenu;
+
+    //Privates
     private bool menuOpen;
     private string openScene;
 
-	void Start () {
+	private void Start () {
         menuOpen = optionsMenu.activeSelf;
         openScene = SceneManager.GetActiveScene().name;
     }
 	
-
+    /// <summary>
+    /// Toggles Open Menu. While Menu is open, pauses game.
+    /// </summary>
     public void ToggleOptionsMenu()
     {
         menuOpen = !menuOpen;

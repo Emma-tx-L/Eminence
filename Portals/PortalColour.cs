@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalColour : MonoBehaviour {
-    public float time = 5f;
 
+    [Header("Settings")]
+    [SerializeField, Range(3, 25)] private float time = 5f;
+
+
+    //Privates
     private bool isCycling;
     private Material material;
 
@@ -16,6 +20,9 @@ public class PortalColour : MonoBehaviour {
         material.SetColor("_Color", initialColor);
     }
 
+    /// <summary>
+    /// Sets a new colour target every cycle
+    /// </summary>
     private void Update()
     {
         if (!isCycling)
@@ -26,6 +33,13 @@ public class PortalColour : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Gets a random bright and saturated colour
+    /// </summary>
+    /// <param name="startColor">Initial color</param>
+    /// <returns> 
+    /// A random color that likely (but not garaunteed to be) different from the initial color
+    /// </returns>
     private Color GetRandomColor(Color startColor)
     {
         Color randomColor = Random.ColorHSV(0f, 1f, 0.7f, 1f, 0.8f, 0.8f);
@@ -37,6 +51,12 @@ public class PortalColour : MonoBehaviour {
         return randomColor;
     }
 
+    /// <summary>
+    /// Transitions to a target color over cycleTime
+    /// </summary>
+    /// <param name="startColor">Initial color</param>
+    /// <param name="endColor">Target color</param>
+    /// <param name="cycleTime">Length of colour transition in seconds</param>
     private IEnumerator CycleMaterial(Color startColor, Color endColor, float cycleTime)
     {
         isCycling = true;

@@ -4,22 +4,20 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
-    [SerializeField]
-    private float volume = 0.6f;
+    [Header("Settings")]
+    [SerializeField, Range(0f, 1f)] private float volume = 0.6f;
 
-    [SerializeField]
-    private AudioSource _dobtySoundSource;
+    [Header("References")]
+    [SerializeField] private AudioSource _dobtySoundSource;
+    [SerializeField] private AudioClip[] _dobtySounds;
+    [SerializeField] private AudioSource _mainThemeSource;
+    [SerializeField] private AudioClip[] _themes;
 
-    [SerializeField]
-    private AudioClip[] _dobtySounds;
-
-    [SerializeField]
-    private AudioSource _mainThemeSource;
-
-    [SerializeField]
-    private AudioClip[] _themes;
-
-	public void PlayHappy(bool ignoreControl)
+    /// <summary>
+    /// Play a happy Dobty sound
+    /// </summary>
+    /// <param name="ignoreControl">If true, play sound regardless of sound settings</param>
+    public void PlayHappy(bool ignoreControl)
     {
         if (GameControl.dobtyGameSounds || ignoreControl)
         {
@@ -27,6 +25,10 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Play an undecisive Dobty sound
+    /// </summary>
+    /// <param name="ignoreControl">If true, play sound regardless of sound settings</param>
     public void PlayMeh(bool ignoreControl)
     {
         if (GameControl.dobtyGameSounds || ignoreControl)
@@ -35,6 +37,10 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Play a sad Dobty sound
+    /// </summary>
+    /// <param name="ignoreControl">If true, play sound regardless of sound settings</param>
     public void PlaySad(bool ignoreControl)
     {
         if (GameControl.dobtyGameSounds || ignoreControl)
@@ -43,6 +49,9 @@ public class AudioManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Plays Game Over rift and switches to quiet theme once rift is complete
+    /// </summary>
     public IEnumerator PlayGameOver()
     {
         _dobtySoundSource.PlayOneShot(_dobtySounds[3], volume);

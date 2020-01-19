@@ -5,18 +5,29 @@ using UnityEngine.SceneManagement;
 
 public class QuitGameButton : MonoBehaviour {
 
-    public GameObject confirmPanel;
+    [Header("References")]
+    [SerializeField] private GameObject confirmPanel;
 
+    /// <summary>
+    /// Refuse to return to main menu. Hides confirmation box.
+    /// </summary>
     public void ConfirmNo()
     {
         confirmPanel.SetActive(false);
     }
 
+    /// <summary>
+    /// Opens confirmation box
+    /// </summary>
     public void OpenConfirm()
     {
         confirmPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Returns to main menu.
+    /// If Endless mode, updates high score.
+    /// </summary>
     public void ConfirmQuit()
     {
         if (GameControl.gameMode == 1)
