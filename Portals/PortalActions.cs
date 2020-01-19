@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalActions : MonoBehaviour {
-    public float medianInterval = 8f;
-    public int points = 2;
-    public int damage = 2;
 
+    [Header("Settings")]
+    [SerializeField, Range(3, 15)] private float medianInterval = 8f;
+    [SerializeField, Range(1, 5)] private int points = 1;
+    [SerializeField, Range(1, 5)] private int damage = 1;
+
+    //Privates
     private ParticleSystem goodSpark;
     private ParticleSystem badSpark;
 
@@ -18,8 +21,8 @@ public class PortalActions : MonoBehaviour {
 
 	private void Start () {
         anim = GetComponent<Animator>();
-        goodSpark = GetComponent<PortalAnimations>().goodSpark;
-        badSpark = GetComponent<PortalAnimations>().badSpark;
+        goodSpark = GetComponent<PortalAnimations>().getGoodSpark();
+        badSpark = GetComponent<PortalAnimations>().getBadSpark();
         ResetTimer();
         SetNeutral();
 	}

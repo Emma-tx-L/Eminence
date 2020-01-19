@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class DobtyMove : MonoBehaviour {
 
-    public bl_Joystick Joystick;
-    public float Speed = 1;
+    [Header("Settings")]
+    [SerializeField, Range(1f, 5f)] private float Speed = 1;
 
+    [Header("References")]
+    [SerializeField] private bl_Joystick Joystick;
+
+    //Privates
     private Camera cameraRect;
     private Vector3 up;
     private float height;

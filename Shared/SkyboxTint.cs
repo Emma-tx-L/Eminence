@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SkyboxTint : MonoBehaviour {
-    public float time = 5f;
-    bool isCycling;
+    
+    [Header("Settings")]
+    [SerializeField, Range(1f, 10f)] private float time = 5f;
 
-    void Awake () {
+    //Privates
+    private bool isCycling;
+
+    private void Awake () {
         isCycling = false;
     }
 	
-	void Update () {
+	private void Update () {
         if (!isCycling)
         {
             Color startColor = RenderSettings.skybox.GetColor("_Tint");
@@ -23,6 +27,13 @@ public class SkyboxTint : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    ///  Transitions from startColor to endColor over cycleTime seconds
+    /// </summary>
+    /// <param name="startColor">The initial colour</param>
+    /// <param name="endColor">The target colour</param>
+    /// <param name="cycleTime">The time interval of colour change in seconds</param>
+    /// <returns></returns>
     IEnumerator CycleMaterial(Color startColor, Color endColor, float cycleTime)
     {
         isCycling = true;

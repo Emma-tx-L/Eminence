@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameboardRotation : MonoBehaviour {
-    public float time = 10f;
-    bool isCycling;
 
-    void Awake () {
+    [Header("Settings")]
+    [SerializeField, Range(5, 30)] private float time = 10f;
+
+    //Privates
+    private bool isCycling;
+
+    private void Awake () {
         isCycling = false;
 	}
 	
-	void Update () {
+	private void Update () {
         if (!isCycling)
         {
             float x = Random.Range(-5f, 5f);
@@ -20,6 +24,13 @@ public class GameboardRotation : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Rotate x, y, and z angles per second for cycleTime seconds
+    /// </summary>
+    /// <param name="x">xAngles to rotate per second</param>
+    /// <param name="y">yAngles to rotate per second</param>
+    /// <param name="z">zAngles to rotate per second</param>
+    /// <param name="cycleTime">Length of time in seconds to rotate</param>
     IEnumerator CycleRotation(float x, float y, float z, float cycleTime)
     {
         isCycling = true;

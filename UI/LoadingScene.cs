@@ -5,14 +5,18 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LoadingScene : MonoBehaviour {
-
-    [SerializeField]
-    private Image _progressBar;
+    
+    [Header("References")]
+    [SerializeField] private Image _progressBar;
 
 	private void Start () {
         StartCoroutine(LoadGameScene());
 	}
 	
+    /// <summary>
+    /// Loads Game Mode and reports progress in loading bar UI
+    /// </summary>
+    /// <returns></returns>
 	private IEnumerator LoadGameScene()
     {
         AsyncOperation level = SceneManager.LoadSceneAsync("GameMode");

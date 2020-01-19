@@ -7,10 +7,11 @@ public class PortalAnimations : MonoBehaviour {
     /// Wrapper for playing animations available for each Portal
     /// </summary>
 
-    public ParticleSystem badCue;
-    public ParticleSystem goodCue;
-    public ParticleSystem badSpark;
-    public ParticleSystem goodSpark;
+    [Header("References")]
+    [SerializeField] private ParticleSystem badSpark;
+    [SerializeField] private ParticleSystem goodSpark;
+    [SerializeField] private ParticleSystem badCue;
+    [SerializeField] private ParticleSystem goodCue;
 
     public void cueBad()
     {
@@ -30,5 +31,23 @@ public class PortalAnimations : MonoBehaviour {
     public void sparkGood()
     {
         goodSpark.Play();
+    }
+
+    /// <summary>
+    /// Getter for bad blessings ParticleSystem
+    /// </summary>
+    /// <returns>Bad blessings ParticleSystem</returns>
+    public ParticleSystem getBadSpark()
+    {
+        return badSpark;
+    }
+
+    /// <summary>
+    /// Getter for good blessings ParticleSystem
+    /// </summary>
+    /// <returns>Good blessings ParticleSystem</returns>
+    public ParticleSystem getGoodSpark()
+    {
+        return goodSpark;
     }
 }

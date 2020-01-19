@@ -5,13 +5,20 @@ using UnityEngine.EventSystems;
 
 public class AchievementsUIManager : MonoBehaviour {
 
-    public GameObject AchievementsPanel;
+    [Header("References")]
+    [SerializeField] private GameObject AchievementsPanel;
 
+    /// <summary>
+    /// Opens Achievements menu
+    /// </summary>
     public void OpenAchievements()
     {
         AchievementsPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// Closes Achievements menu
+    /// </summary>
     public void CloseAchievements()
     {
         AchievementsPanel.SetActive(false);

@@ -4,18 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DobtyHP : MonoBehaviour {
-    public float maxBrightness = 3f;
-    public float minBrightness = 0.4f;
+    [Header("Settings")]
+    [SerializeField, Range(1f, 5f)] private float maxBrightness = 3f;
+    [SerializeField, Range(0f, 1f)] private float minBrightness = 0.4f;
 
-    public int maxHP = 10;
-    public int currentHP;
+    [SerializeField, Range(1, 50)] private int maxHP = 10;
 
-    public int scoreIncrement = 1;
-    public int scoreDecrement = -2;
+    [SerializeField, Range(0, 10)] int scoreIncrement = 1;
+    [SerializeField, Range(0, 10)] int scoreDecrement = -1;
 
-    public ParticleSystem goodEffect;
-    public ParticleSystem badEffect;
+    [Header("References")]
+    [SerializeField] private ParticleSystem goodEffect;
+    [SerializeField] private ParticleSystem badEffect;
 
+    //Privates
+    private int currentHP;
     private Slider HPSlider;
     private Animator DobtyIconAnim;
     private float brightnessIncrement = 0.1f;

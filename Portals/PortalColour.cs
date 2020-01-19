@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalColour : MonoBehaviour {
-    public float time = 5f;
 
+    [Header("Settings")]
+    [SerializeField, Range(3, 25)] private float time = 5f;
+
+
+    //Privates
     private bool isCycling;
     private Material material;
 
