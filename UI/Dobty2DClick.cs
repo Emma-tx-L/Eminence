@@ -13,6 +13,9 @@ public class Dobty2DClick : MonoBehaviour {
         audioManager = ReferenceManager.refManager.audioManager;
     }
 
+    /// <summary>
+    /// Makes 2D Dobty Sprite play a random expression animation
+    /// </summary>
     public void PlayRandomAnimation()
     {
         if (!_dobty2DAnim.GetCurrentAnimatorStateInfo(0).IsTag("Idle")) {

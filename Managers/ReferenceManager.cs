@@ -7,19 +7,19 @@ public class ReferenceManager : MonoBehaviour {
 
     public static ReferenceManager refManager = null;
 
-    //Dobty
+    [Header("Dobty")]
     public GameObject Dobty;
     public DobtyHP dobtyHP;
     public Animator DobtyIconAnim;
 
-    //Other Managers
+    [Header("Other Managers")]
     public ScoreManager scoreManager;
     public TimeManager timeManager;
     public SkyboxTheme theme;
     public LoadSceneManager loadSceneManager;
     public AudioManager audioManager;
-    
-    //UI Elements
+
+    [Header("UI Elements")]
     public Slider HPSlider;
     public GameObject HPSliderObject;
     public GameObject gameOverCanvas;

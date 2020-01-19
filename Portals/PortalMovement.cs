@@ -3,23 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PortalMovement : MonoBehaviour {
-    public float rotationSpeed = 30f;
-    public float moveSpeed = 1f;
-    public float movementInterval = 5f;
 
+    [Header("Settings")]
+    [SerializeField, Range(0f, 90f)] private float rotationSpeed = 20f;
+    [SerializeField, Range(0f, 1f)] private float moveSpeed = 0.2f;
+    [SerializeField, Range(5f, 60f)] private float movementInterval = 20f;
+
+    //Privates
     private float timer = 0f;
     private float x;
     private float y;
     private float xScreenOffset = 0.2f;
     private float yScreenOffset = 0.2f;
 
-    void Start()
+    private void Start()
     {
         timer = 0f;
         RecalculateMovement();
     }
 
-    void Update()
+    private void Update()
     {
         transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f, Space.Self);
 

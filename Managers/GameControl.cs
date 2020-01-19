@@ -7,7 +7,6 @@ using System.IO;
 
 public class GameControl : MonoBehaviour
 {
-
     public static GameControl control;
 
     // ~~ ** //DECLARE VARIABLES HERE // ~~ ** //

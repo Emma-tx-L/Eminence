@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    //Singleton
     public static GameManager gameManager;
 
-	void Awake () {
+	private void Awake () {
 		if (gameManager == null)
         {
             gameManager = this;
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
+    /// <summary>
+    /// Counts number of times Survival has been played and handles related achievements
+    /// </summary>
     private void HandleTimesPlayedAchievement()
     {
         GameControl.timesPlayedSurvival++;
@@ -36,6 +40,9 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Updates high score
+    /// </summary>
     private void UpdateHighScore()
     {
         int currentScore = ReferenceManager.refManager.scoreManager.GetCurrentScore();
@@ -44,8 +51,10 @@ public class GameManager : MonoBehaviour {
             GameControl.highScoreSurvival = currentScore;
         }
     }
-	
 
+    /// <summary>
+    /// Ends game and handles game-over logic
+    /// </summary>
     public void EndGame()
     {
         HandleTimesPlayedAchievement();

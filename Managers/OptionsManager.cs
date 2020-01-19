@@ -6,17 +6,21 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour {
-    public GameObject darkTheme;
-    public GameObject lightTheme;
 
-    public GameObject[] gameModes;
+    [Header("Required References")]
+    [SerializeField] private GameObject darkTheme;
+    [SerializeField] private GameObject lightTheme;
 
-    public Text highScoreText;
-    public Text currentScoreText;
+    [Header("Main Menu References")]
+    [SerializeField] private GameObject[] gameModes;
+    [SerializeField] private Text survivalHighScore;
+    [SerializeField] private Text endlessHighScore;
 
-    public Text survivalHighScore;
-    public Text endlessHighScore;
+    [Header("Game Mode References")]
+    [SerializeField] private Text highScoreText;
+    [SerializeField] private Text currentScoreText;
 
+    //Privates
     private string openScene;
 
 	private void Start() {
@@ -43,6 +47,9 @@ public class OptionsManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Updates Light/Dark theme sprite UI
+    /// </summary>
     private void UpdateOptionsTheme()
     {
         if (GameControl.lightMode)
@@ -57,6 +64,21 @@ public class OptionsManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Toggles colour theme
+    /// </summary>
+    public void ChangeTheme()
+    {
+        GameControl.control.toggleThemePreference();
+        UpdateOptionsTheme();
+        ReferenceManager.refManager.theme.UpdateColourTheme();
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    /// <summary>
+    /// Updates game mode UI
+    /// Main Menu only
+    /// </summary>
     private void UpdateGameMode()
     {
         foreach (GameObject mode in gameModes)
@@ -66,6 +88,12 @@ public class OptionsManager : MonoBehaviour {
         gameModes[GameControl.gameMode].SetActive(true);
     }
 
+    /// <summary>
+    /// Toggles between game modes
+    ///     0 = Survival
+    ///     1 = Endless
+    /// Main Menu Only
+    /// </summary>
     public void ChangeGameMode()
     {
         int currentMode = GameControl.control.getGameMode();
@@ -78,12 +106,20 @@ public class OptionsManager : MonoBehaviour {
         EventSystem.current.SetSelectedGameObject(null);
     }
 
+    /// <summary>
+    /// Updates current score UI
+    /// Game Mode only
+    /// </summary>
     public void UpdateCurrentScore()
     {
         int currentScore = ReferenceManager.refManager.scoreManager.GetCurrentScore();
         currentScoreText.text = currentScore.ToString();
     }
 
+    /// <summary>
+    /// Updates High Score text UI
+    /// Game Mode only
+    /// </summary>
     public void UpdateHighScore()
     {
         switch (GameControl.gameMode)
@@ -100,18 +136,13 @@ public class OptionsManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Updates Achievements High Score
+    /// Main Menu only
+    /// </summary>
     public void UpdateHighScoreMenu()
     {
         survivalHighScore.text = GameControl.highScoreSurvival.ToString();
         endlessHighScore.text = GameControl.highScoreEndless.ToString();
     }
-
-    public void ChangeTheme()
-    {
-        GameControl.control.toggleThemePreference();
-        UpdateOptionsTheme();
-        ReferenceManager.refManager.theme.UpdateColourTheme();
-        EventSystem.current.SetSelectedGameObject(null);
-    }
-
 }
