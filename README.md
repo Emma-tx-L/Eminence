@@ -50,7 +50,6 @@ Pause Game and Return-To-Menu (Dobty needs a break) Options
 
 ## Known Issues
 **v0.3**: "Current Score" in Game Mode's Pause/Options menu only updates the first time the menu is opened  
-*a bugfix for this is pending Google Play review in v0.4*  
 
 **v0.4 - CURRENT VERSION**: None... YET... 
 
